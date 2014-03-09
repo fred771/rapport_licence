@@ -1,0 +1,177 @@
+\documentclass[11pt,openright,a4paper]{report}
+
+ %%%%		Importation de tous les packages		%%%%%
+\usepackage{tocloft}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{sectsty}
+\usepackage{fancyhdr}	% Permet de faire entête et pied de page
+\usepackage{tabularx} 	% Pour faire des tableaux
+\usepackage{hyperref}	% Pour faire les hyperliens internes
+\usepackage{color}
+\usepackage[svgnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{ifmtarg}
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage{boxedminipage}
+\usepackage[framemethod=default]{mdframed}
+\usepackage[
+		%shortlop,
+		under,
+		side,
+		%top,
+		center,
+		bottom,
+	]{photo}
+\usepackage{indentfirst}
+\selectlanguage{francais}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+ %%%%	Gestion de la dimension du document		%%%%%
+	\oddsidemargin 0.8cm
+	\evensidemargin -0.2cm
+	\textwidth 16cm
+	\textheight 23cm
+	\topmargin -0.5cm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+ %%%%	Préparation des nouvelles commandes		%%%%%
+\renewcommand{\familydefault}{\sfdefault}
+
+% Couleur et définition du thème chapter
+\definecolor{monbleu}{HTML}{4E83A2}
+\newcommand{\mychapter}[1]{\textcolor{monbleu}{\chapter{#1}}}
+
+% Couleur et définition du thème section
+\definecolor{monvert}{HTML}{0BA486}
+\newcommand{\mysection}[1]{\textcolor{monvert}{\section{#1}}}
+
+% Couleur et définition du thème subsection
+\definecolor{monorange}{HTML}{E95D0F}
+\newcommand{\mysubsection}[1]{\textcolor{monorange}{\subsection{#1}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+			
+			
+			
+%%%%		Pour mettre du code dans des boites		 %%%%%
+\makeatletter				
+	\newcommand{\mybox}[1]{%
+  		\setbox0=\hbox{#1}%
+  		\setlength{\@tempdima}{\dimexpr\wd0+13pt}%
+  		\begin{tcolorbox}[	colframe=black!40,
+  							boxrule=0.5pt,
+  							arc=4pt,
+      						left=6pt,
+      						right=6pt,
+      						top=6pt,
+      						bottom=6pt,
+      						boxsep=0pt,
+      						width=16cm
+      					]
+    			#1
+  		\end{tcolorbox}
+}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%		Pour coloriser les codes PHP ou autres		 %%%%%
+\lstset{language=PHP,
+    		basicstyle=\ttfamily\small,
+    		breaklines=false,
+    		prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    		frame=lines,
+    		showtabs=false,
+    		showspaces=false,
+    		showstringspaces=false,
+    		keywordstyle=\color{red}\bfseries,
+    		stringstyle=\color{green!50!black},
+    		commentstyle=\color{gray}\itshape,
+    		numbers=left,
+    		captionpos=t,
+    		escapeinside={\%*}{*)}
+		}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%		 	table of contents config			%%%%%%%%
+
+\tocloftpagestyle{empty}
+\setcounter{tocdepth}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%		 	Définition des entêtes et pieds de page			%%%%%%%%
+\pagestyle{fancy}
+	\lhead[\fancyplain{}{\raggedright\slshape\leftmark}]{}
+	\chead{}
+	\rhead[]{\fancyplain{}{\raggedleft\slshape\rightmark}}
+	\fancyfoot[L]{Freddy Dubois}
+	\rfoot[Licence Professionnelle - IUT Orléans]{Licence Professionnelle - IUT Orléans}
+\fancypagestyle{plain} %Pour avoir le pied de page sur les première pages des chapitres
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%		Page de garde		%%%%%%%%%%
+	\begin{titlepage}
+		\begin{Large}
+		\baselineskip=7mm
+		\noindent
+			\includegraphics[height=2cm]{../images/logo.png}
+			\hfill
+			\includegraphics[height=2cm]{../images/logo_IUT}
+			\vskip 30mm
+			\begin{center}
+				\rule{\textwidth}{0.5 mm}\\
+				{\huge\sffamily\bfseries\baselineskip=1cm
+					Sujet
+				\par}
+				\rule{\textwidth}{0.5 mm}\\
+				{\Large\sffamily\bfseries 
+					Rapport de stage/TER/...
+				}
+					\vskip 20mm
+				Freddy DUBOIS
+					\vskip 5mm
+				17 février au 13 juin 2014
+					\vskip 5mm
+				Année universitaire 2013 - 2014
+					\vfill
+					\vskip 45mm
+				\begin{tabular}{l l p{4cm} l l}
+					 Tuteur : Olivier ZOÏS		&	&	&	Tuteur : Enseignant	
+				\end{tabular}
+			\end{center}
+		\end{Large}
+	\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%		Contenu du mémoire	%%%%%%%%%%
+\cleardoublepage
+\input{../tex/remerciements/1-remerciements.tex} % Mettre ici les remerciements
+
+\tableofcontents			% Table des matières
+
+\addcontentsline{toc}{chapter}{Table des mati\`eres}
+\input{../tex/5-intro/1-intro.tex}
+\input{../tex/1-documentation/1-documentation.tex}
+%\input{../tex/2-projet/2-projet.tex}
+%\input{../tex/3-codage/3-codage.tex}
+
+\addcontentsline{toc}{chapter}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
