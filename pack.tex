@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc}
 \usepackage[francais]{babel}
+\usepackage{chngcntr}\counterwithout{footnote}{chapter} %permt de compter les notes de pieds de page
 \usepackage{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{sectsty}
@@ -56,6 +57,9 @@
 % Couleur et définition du thème subsection
 \definecolor{monorange}{HTML}{E95D0F}
 \newcommand{\mysubsection}[1]{\textcolor{monorange}{\subsection{#1}}}
+
+% Définition D'Interlog Services
+\newcommand{\interlog}{\textit{Interlog Services }}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 			
 			
@@ -128,9 +132,9 @@
 		\begin{Large}
 		\baselineskip=7mm
 		\noindent
-			\includegraphics[height=2cm]{../images/logo.png}
+			\includegraphics[height=2cm]{./images/logo.png}
 			\hfill
-			\includegraphics[height=2cm]{../images/logo_IUT}
+			\includegraphics[height=2cm]{./images/logo_IUT.pdf}
 			\vskip 30mm
 			\begin{center}
 				\rule{\textwidth}{0.5 mm}\\
@@ -161,15 +165,16 @@
 
 %%%%%%%%%%%		Contenu du mémoire	%%%%%%%%%%
 \cleardoublepage
-\input{../tex/remerciements/1-remerciements.tex} % Mettre ici les remerciements
+\sloppy %permet d'éviter la césure des mots 
+\input{./1-remerciements/1-remerciements.tex} % Mettre ici les remerciements
 
 \tableofcontents			% Table des matières
 
 \addcontentsline{toc}{chapter}{Table des mati\`eres}
-\input{../tex/5-intro/1-intro.tex}
-\input{../tex/1-documentation/1-documentation.tex}
-%\input{../tex/2-projet/2-projet.tex}
-%\input{../tex/3-codage/3-codage.tex}
+\input{./2-intro/2-intro.tex}
+\input{./3-l_entreprise/3-presentation.tex}
+\input{./4-projet/4-projet.tex}
+\input{./5-codage/5-codage.tex}
 
 \addcontentsline{toc}{chapter}{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
