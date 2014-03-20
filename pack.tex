@@ -21,6 +21,7 @@
 \usepackage{textcomp}
 \usepackage{boxedminipage}
 \usepackage[framemethod=default]{mdframed}
+\usepackage{appendix}
 \usepackage[
 		%shortlop,
 		under,
@@ -132,18 +133,18 @@
 		\begin{Large}
 		\baselineskip=7mm
 		\noindent
-			\includegraphics[height=2cm]{./images/logo.png}
+			\includegraphics[height=2cm]{./images/logo}
 			\hfill
-			\includegraphics[height=2cm]{./images/logo_IUT.pdf}
+			\includegraphics[height=2cm]{./images/logo_IUT}
 			\vskip 30mm
 			\begin{center}
-				\rule{\textwidth}{0.5 mm}\\
+				\rule{\textwidth}{1 mm}\\
 				{\huge\sffamily\bfseries\baselineskip=1cm
-					Sujet
+					Développement d'application de PHP objet
 				\par}
-				\rule{\textwidth}{0.5 mm}\\
+				\rule{\textwidth}{1 mm}\\
 				{\Large\sffamily\bfseries 
-					Rapport de stage/TER/...
+					Rapport de stage de Licence professionnelle
 				}
 					\vskip 20mm
 				Freddy DUBOIS
@@ -152,7 +153,11 @@
 					\vskip 5mm
 				Année universitaire 2013 - 2014
 					\vfill
-					\vskip 45mm
+					\begin{photo}[!h]
+						\centering
+						\includegraphics[scale=1]{./images/siege_interlog}
+					\end{photo}
+					\vskip 5mm %45mm
 				\begin{tabular}{l l p{4cm} l l}
 					 Tuteur : Olivier ZOÏS		&	&	&	Tuteur : Enseignant	
 				\end{tabular}
@@ -166,17 +171,19 @@
 %%%%%%%%%%%		Contenu du mémoire	%%%%%%%%%%
 \cleardoublepage
 \sloppy %permet d'éviter la césure des mots 
-\input{./1-remerciements/1-remerciements.tex} % Mettre ici les remerciements
+\input{./tex/1-remerciements/1-remerciements.tex} % Mettre ici les remerciements
 
 \tableofcontents			% Table des matières
 
 \addcontentsline{toc}{chapter}{Table des mati\`eres}
-\input{./2-intro/2-intro.tex}
-\input{./3-l_entreprise/3-presentation.tex}
-\input{./4-projet/4-projet.tex}
-\input{./5-codage/5-codage.tex}
+\input{./tex/2-intro/2-intro.tex}
+\input{./tex/3-l_entreprise/3-presentation.tex}
+\input{./tex/4-projet/4-projet.tex}
+\input{./tex/5-codage/5-codage.tex}
+\input{./tex/6-bilan/6-bilan.tex}
+%\input{./7-annexes/7-annexes.tex}
 
-\addcontentsline{toc}{chapter}{}
+\addcontentsline{toc}{chapter}{Annexes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
